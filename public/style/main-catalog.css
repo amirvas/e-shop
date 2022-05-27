@@ -1,0 +1,25 @@
+.catalog{
+  margin-bottom: 30px;
+}
+.catalog-list{
+  display: flex;
+  flex-wrap: wrap;
+
+  list-style: none;
+
+  padding: 0 0;
+}
+.catalog-item{
+  width: 360px;
+  height: 500px;
+}
+.catalog-item-link:active, 
+.catalog-item-link:hover,  
+.catalog-item-link {
+  text-decoration: none;
+  color: #000;
+}
+.item-img{
+  width: 260px;
+  height: 400px;
+}

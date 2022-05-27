@@ -1,0 +1,114 @@
+main {
+  margin-bottom: 40px;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 50px;
+}
+
+.filter-options {
+  display: flex;
+}
+
+.filter-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+
+  display: inline;
+}
+
+.from-title,
+.to-title,
+.category-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+
+  color: #B7B7B7;
+
+  margin-bottom: 10px;
+}
+
+.input {
+  height: 48px;
+  width: 150px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.input-to {
+  margin-right: 60px;
+}
+
+.input-category {
+  height: 54px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.input-category {
+  width: 300px;
+}
+
+.total-products {
+  margin: 0 0;
+  margin-top: auto;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+
+  color: #B7B7B7;
+}
+
+.filter-line {
+  border: 1px solid #000;
+  margin-bottom: 30px;
+}
+
+/* КНОПКИ */
+.btn-apply-filter {
+  height: 54px;
+  width: 100px;
+  margin-top: auto;
+  background-color: #fff;
+
+  margin-left: 20px;
+  margin-right: 10px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 16px;
+}
+
+.btn-apply-filter:hover {
+  color: #B7B7B7;
+}
+
+.btn-clear-filter {
+  height: 54px;
+  width: 100px;
+  margin-top: auto;
+  background-color: #fff;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 16px;
+}
+
+.btn-clear-filter:hover {
+  color: #B7B7B7;
+}

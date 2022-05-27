@@ -1,0 +1,141 @@
+body {
+  width: 1160px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+/* лого */
+.logo {
+  padding-right: 12px;
+}
+
+/* текст */
+.header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  text-transform: uppercase;
+
+  margin: 0 0;
+  padding-bottom: 11px;
+}
+
+.description {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  color: #B7B7B7;
+
+  margin: 0 0;
+  padding-right: 250px;
+}
+
+/* ссылка на каталог */
+.catalog-link {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  text-transform: uppercase;
+
+  padding-right: 101px;
+  margin-bottom: 17px;
+
+  outline: none;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.catalog-link:visited {
+  color: #000;
+}
+
+.catalog-link:after {
+  background-color: #f66d52;
+  display: block;
+  content: "";
+  height: 2px;
+  width: 0%;
+  transition: width .3s ease-in-out;
+}
+
+.catalog-link:hover:after {
+  width: 100%;
+}
+
+
+/* телефон */
+.phone {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  text-transform: uppercase;
+
+  padding-right: 72px;
+}
+
+/* корзина полная */
+.cart {
+  display: flex;
+  background: black;
+  align-items: center;
+  padding: 0 20px;
+
+  cursor: pointer;
+}
+
+.cart-counter {
+  background: #fff;
+  border-radius: 50%;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+
+  margin: 0 10px 10px 0;
+  padding: 0px 2px;
+}
+
+.cart-sum {
+  color: #fff;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* корзина пустая */
+.cart-empty {
+  display: flex;
+}
+
+.cart-empty-svg {
+  margin: auto;
+  padding-right: 15px;
+}
+
+.cart-empty-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #000000;
+}

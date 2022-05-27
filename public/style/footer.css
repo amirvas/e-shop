@@ -1,0 +1,149 @@
+footer{
+  background: #000;
+  display: flex;
+  padding: 30px 0;
+}
+
+.logo-footer{
+  padding: 0 68px 0 10px;
+}
+
+.footer-text{
+  display: flex;
+  flex-direction: column;
+
+  padding-right: 127px;
+}
+.since{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+
+  display: inline;
+  margin: 0 0;
+  padding-bottom: 24px;
+}
+.private-policy{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  color: #B7B7B7;
+
+  padding-bottom: 24px;
+}
+.public-offer{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  color: #B7B7B7;
+}
+
+
+.footer-links{
+  display: flex;
+  flex-direction: column;
+
+  padding-right: 127px;
+}
+.to-catalog{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  text-decoration-line: underline;
+  color: #FFFFFF;
+
+  padding-bottom: 24px;
+}
+.to-sale{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  text-decoration-line: underline;
+  color: #FFFFFF;
+}
+
+
+.footer-contacts{
+  display: flex;
+  flex-direction: column;
+
+  padding-right: 127px;
+}
+.contacts-in-touch{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  color: #B7B7B7;
+
+  display: inline;
+  margin: 0 0;
+
+  padding-bottom: 24px;
+}
+.contacts-phone{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  color: #FFFFFF;
+
+  display: inline;
+  margin: 0 0;
+
+  padding-bottom: 24px;
+}
+.contacts-email{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  color: #FFFFFF;
+
+  display: inline;
+  margin: 0 0;
+}
+
+
+.footer-social-media{
+  display: flex;
+  flex-direction: column;
+}
+.social-text{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  color: #B7B7B7;
+
+  display: inline;
+  margin: 0 0;
+
+  padding-bottom: 24px;
+}
+.social-links{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding-bottom: 24px;
+}
+.twitter,
+.vk{
+  padding-right: 20px;
+}
+.advertisement{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  text-decoration-line: underline;
+  color: #B7B7B7;
+}
