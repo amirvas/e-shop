@@ -39,7 +39,7 @@
         <img :src="productData.image.file.url" alt="" class="product-image" />
         <div class="product-cont">
           <p class="product-price">{{ productData.price | numberFormat }} p</p>
-          <button class="add-to-cart">
+          <button class="add-to-cart" @click.prevent="addProductToCart">
             <p class="button-title">в корзину</p>
           </button>
         </div>
@@ -51,6 +51,7 @@
 <script>
 import axios from "axios";
 import numberFormat from "@/helpers/numberFormat";
+import { mapActions } from "vuex";
 
 export default {
   data() {
@@ -59,7 +60,7 @@ export default {
     };
   },
   methods: {
-    //получаем товар, идентификтаор из роутера
+    //получаем товар, идентификатор из роутера
     loadProduct() {
       return axios
         .get(
@@ -69,12 +70,17 @@ export default {
           this.productData = res.data;
         });
     },
+    ...mapActions({
+      addToCart: "addToCart",
+    }),
+    // добавление товара в корзину
+    addProductToCart() {
+      this.addToCart({
+        id: this.productData.id,
+        amount: 1,
+      });
+    },
   },
-  // computed: {
-  //   productToRender() {
-  //     return this.productData;
-  //   },
-  // },
   filters: {
     numberFormat,
   },

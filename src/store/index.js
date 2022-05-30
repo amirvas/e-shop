@@ -55,15 +55,71 @@ export default new Vuex.Store( {
           context.commit( 'updateCategories', res.data.items )
         } );
     },
-    //добавление товара в корзину
-    // addToCart ( context )
-    // {
-    //   axios.post( 'https://vue-study.skillbox.cc/api/baskets/', {
-    //     params: {
-    //       userAccessKey: context.state.actualAccessKey
-    //     }
-    //   } )
-    // }
+    // добавление товара в корзину
+    addToCart ( context, { id, amount } )
+    {
+      return axios
+        .post( 'https://vue-study.skillbox.cc/api/baskets/products', {
+          productId: id,
+          quantity: amount
+        }, {
+          params: {
+            userAccessKey: context.state.actualAccessKey
+          }
+        } )
+        .then( ( res ) =>
+        {
+          context.commit( 'updateCartProducts', res.data.items )
+        } )
+        .catch( ( error ) =>
+        {
+          console.log( error )
+        } )
+    },
+    // изменение количества товара в корзине
+    updateAmount ( context, { id, amount } )
+    {
+      return axios
+        .put( 'https://vue-study.skillbox.cc/api/baskets/products', {
+          productId: id,
+          quantity: amount
+        }, {
+          params: {
+            userAccessKey: context.state.actualAccessKey
+          }
+        } )
+        .then( ( res ) =>
+        {
+          context.commit( 'updateCartProducts', res.data.items )
+        } )
+        .catch( ( error ) =>
+        {
+          console.log( error )
+        } )
+    },
+    // удаление товара из корзины
+    deleteFromCart ( context, id )
+    {
+      var myHeaders = new Headers();
+      myHeaders.append( "Content-Type", "application/x-www-form-urlencoded" );
+
+      var urlencoded = new URLSearchParams();
+      urlencoded.append( "productId", id.id );
+
+      var requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+        body: urlencoded,
+        redirect: 'follow'
+      };
+      return fetch( `https://vue-study.skillbox.cc/api/baskets/products?userAccessKey=${ context.state.actualAccessKey }`, requestOptions )
+        .then( res =>
+        {
+          context.commit( 'updateCartProducts', res.data.items )
+          console.log( res.data.items )
+        } )
+        .catch( error => console.log( 'error', error ) );
+    },
   },
   getters: {
     // преобразуем cartProducts в готовый массив с товарами в корзине для вывода
@@ -108,3 +164,4 @@ export default new Vuex.Store( {
     }
   }
 } )
+
