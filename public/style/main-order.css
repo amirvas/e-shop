@@ -1,0 +1,31 @@
+.success-title,
+.success-number,
+.rec-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  color: #000000;
+}
+
+.order-text,
+.rec-name {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  color: #000000;
+}
+
+.success {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reciever {
+  display: flex;
+}
+
+.rec-title {
+  padding-right: 150px;
+}

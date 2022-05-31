@@ -26,42 +26,47 @@
         <div class="total-window">
           <p class="total">Итого:</p>
           <p class="total-summ">{{ cartTotalPrice | numberFormat }} p</p>
-          <button class="order">Заказать</button>
+          <button class="order" @click.prevent="makeOrder">Заказать</button>
         </div>
-        <div class="error-window">
-          <p class="error-title">Ошибка!</p>
-          <p class="error-message">произошла какая-то ошибка</p>
+        <div class="error-window" v-show="errors !== null">
+          <p class="error-title">Внимание!</p>
+          <p class="error-message" v-for="err in errors" :key="err">
+            {{ err }}
+          </p>
         </div>
       </div>
     </div>
 
     <div class="order-form">
       <p class="cart-title">Ваши данные</p>
-      <form action="" method="get">
+      <form action="" method="POST">
         <div class="form-name-surname">
-          <div class="form-item">
-            <p class="form-item-title">Имя:</p>
-            <input class="form-item-input" type="text" name="" id="" />
-          </div>
-          <div class="form-item">
-            <p class="form-item-title">Фамилия:</p>
-            <input class="form-item-input" type="text" name="" id="" />
-          </div>
+          <OrderFormItem
+            placeholder="Ваше имя"
+            title="Имя:"
+            type="text"
+            v-model="formData.name"
+          />
+          <OrderFormItem
+            placeholder="Ваш адрес"
+            title="Адрес доставки:"
+            type="text"
+            v-model="formData.address"
+          />
         </div>
-        <div class="form-address">
-          <p class="form-address-title">Адрес доставки:</p>
-          <input class="form-address-input" type="text" name="" id="" />
-        </div>
-
         <div class="form-phone-email">
-          <div class="form-item">
-            <p class="form-item-title">Телефон:</p>
-            <input class="form-item-input" type="text" name="" id="" />
-          </div>
-          <div class="form-item">
-            <p class="form-item-title">Email:</p>
-            <input class="form-item-input" type="text" name="" id="" />
-          </div>
+          <OrderFormItem
+            placeholder="Ваш телефон"
+            title="Телефон:"
+            type="tel"
+            v-model="formData.phone"
+          />
+          <OrderFormItem
+            placeholder="Ваша почта"
+            title="Email:"
+            type="email"
+            v-model="formData.email"
+          />
         </div>
       </form>
     </div>
@@ -70,16 +75,59 @@
 
 <script>
 import CartProductList from "@/components/CartProductList.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import numberFormat from "@/helpers/numberFormat";
+import OrderFormItem from "@/components/OrderFormItem.vue";
+import axios from "axios";
 
 export default {
-  components: { CartProductList },
+  data() {
+    return {
+      formData: {},
+      errors: null,
+    };
+  },
+  components: { CartProductList, OrderFormItem },
   computed: {
     ...mapGetters({
       // получаем общую сумму товаров в корзине
       cartTotalPrice: "cartTotal",
     }),
+  },
+  methods: {
+    ...mapMutations({
+      resetCart: "resetCart",
+    }),
+    // сделать заказ
+    makeOrder() {
+      return (
+        axios
+          .post(
+            "https://vue-study.skillbox.cc/api/orders",
+            {
+              ...this.formData,
+            },
+            {
+              params: {
+                userAccessKey: this.$store.state.actualAccessKey,
+              },
+            }
+          )
+          .then((res) => {
+            // после отправки заказа обнуляем корзину
+            this.resetCart();
+            // и перекидываем на итоговую страницу заказа
+            this.$router.push({
+              name: "order",
+              params: { orderId: res.data.id },
+            });
+          })
+          // перехватываем ошибки для вывода в шаблон
+          .catch((error) => {
+            this.errors = error.response.data.error.request;
+          })
+      );
+    },
   },
   filters: {
     numberFormat,

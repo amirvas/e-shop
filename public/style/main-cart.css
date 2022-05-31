@@ -79,6 +79,11 @@
   width: 30px;
 }
 
+.quantity::-webkit-outer-spin-button,
+.quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .item-total-summ {
   display: inline;
 

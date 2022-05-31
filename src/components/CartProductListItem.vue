@@ -12,7 +12,7 @@
       <div class="item-count">
         <div class="quantity-inner">
           <button class="bt-minus" @click.prevent="decreaseAmount">-</button>
-          <input type="text" class="quantity" v-model="actualAmount" />
+          <input type="number" class="quantity" v-model="actualAmount" />
           <button class="bt-plus" @click.prevent="increaseAmount">+</button>
         </div>
         <p class="item-total-summ">

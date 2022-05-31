@@ -22,6 +22,10 @@ export default new Vuex.Store( {
     updateCategories ( state, categories )
     {
       state.categories = categories
+    },
+    resetCart ( state )
+    {
+      state.cartProducts = []
     }
   },
   actions: {
